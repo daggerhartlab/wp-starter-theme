@@ -1,0 +1,112 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif]-->
+<!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js no-svg" {{ site.language_attributes }}> <!--<![endif]-->
+<head>
+	<meta charset="{{ site.charset }}" />
+	<meta name="description" content="{{ site.description }}">
+	<link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	{{function('wp_head')}}
+
+	{# Implement block head in template to extend it. #}
+	{% block head %}
+	{% endblock %}
+	</head>
+
+	<body class="{{body_class}}" data-template="base.twig">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+
+		<header class="header" >
+			{% block header %}
+				<div class="header-content-wrapper">
+					<div class="logo-wrap hdr-logo" role="banner">
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">
+							<img alt="{{ site.name }} logo" src="{{ logo_url }}"/>
+						</a>
+					</div>
+
+					<div id="nav-trigger-control" for="nav-trigger">
+						<span class="page-screen"></span>
+						<span class="toggle">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+					</div>
+
+					<nav id="nav-main" class="nav-main" role="navigation">
+						<div class="nav-wrapper">
+							{%  if menu_primary.get_items %}
+								{% include "menu.twig" with {'items': menu_primary.get_items } %}
+							{% endif %}
+						</div>
+					</nav><!-- #nav -->
+				</div>
+			{% endblock %}
+		</header>
+
+
+		{% block hero %}
+			{% if thumbnail_markup  %}
+				<section class="hero">
+					<div class="hero-image-wrapper">
+						{{ thumbnail_markup }}
+					</div>
+					<img class="overlay" alt="overlay image" src="{{ overlay_image_url }}" />
+					<div class="hero-content">
+						<h1>{{ hero_headline }}</h1>
+						{% if(cta_button) %}
+							<div class="cta-button-wrapper">
+								<a href="{{ cta_button.link }}" class="cta-button">{{cta_button.text}} {{ cta_button.nofollow ? 'rel="nofollow"' : '' }}</a>
+							</div>
+						{% endif %}
+					</div>
+				</section>
+			{% endif %}
+		{% endblock %}
+
+		<section id="content" role="main" class="content-wrapper">
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+		</section>
+
+		{% block footer %}
+			<footer id="footer">
+				<div class="footer-content">
+					<div class="logo-wrap">
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">
+							<img alt="{{ site.name }} logo" src="{{ logo_url }}"/>
+						</a>
+					</div>
+					{% if menu_footer_column_1.get_items or   menu_footer_column_2.get_items %}
+
+						<div class="footer-nav">
+							{% if menu_footer_column_1.get_items %}
+								<div class="footer-nav-column">
+									{% include "menu.twig" with {'items': menu_footer_column_1.get_items} %}
+								</div>
+							{% endif %}
+							{% if menu_footer_column_2.get_items %}
+								<div class="footer-nav-column">
+									{% include "menu.twig" with {'items': menu_footer_column_2.get_items} %}
+								</div>
+							{% endif %}
+						</div>
+
+					{% endif %}
+				</div>
+				<div class="copyright">
+					&copy; {{ 'now' | date('Y') }} {{ site.name }}
+				</div>
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

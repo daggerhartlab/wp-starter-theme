@@ -1,0 +1,54 @@
+// Custom variables.
+
+// colors
+$primary: deeppink;
+$base-font-color: black;
+$accent-color: MintCream;
+$accent-color-dark: MediumSpringGreen;
+$accent-two: RebeccaPurple;
+
+// fonts & typography
+$font-family-sans-serif: sans-serif;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// body text
+$body_font_size_base: 18px;
+$body_font_size_sm: 18px;
+$body_font_size_lg: 22px;
+$body_font_size_xl: 22px;
+$body_line_height_base: 1.5;
+$body_font_weight: $font-weight-regular;
+
+// headings
+$heading_font_size_base: 30px;
+$heading_font_size_sm: 35px;
+$heading_font_size_lg: 50px;
+$heading_font_size_xl: 50px;
+$heading_line_height_base: 1.3;
+$heading_font_weight: $font-weight-bold;
+
+// Heros
+$hero_font_size_base: 20px;
+$hero_font_size_sm: 36px;
+$hero_font_size_lg: 48px;
+$hero_font_size_xl: 48px;
+$hero_line_height_base: 1.4;
+$hero_font_weight: $font-weight-bold;
+
+// grid breakpoint over rides.
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px, // this could be where we switch to md.
+	md: 768px,
+	lg: 992px, // this could be where we switch to desktop
+	xl: 1200px,
+	xxl: 1400px // this could be where we switch to wide
+) !default;
+
+// breakpoints
+$breakpoint_xs_max:  map-get($grid-breakpoints, "sm") - .02px;
+$breakpoint_sm_min:  map-get($grid-breakpoints, "sm") - .02px;
+$breakpoint_lg_min:  map-get($grid-breakpoints, "lg") - .02px;
+$breakpoint_xl_min:  map-get($grid-breakpoints, "xxl") - .02px;

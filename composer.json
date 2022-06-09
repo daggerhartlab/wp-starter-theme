@@ -1,0 +1,20 @@
+{
+    "name": "daggerhartlab/wp-starter-theme",
+    "autoload": {
+        "psr-4": {
+            "DagLabTheme\\": "src/"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "timber/timber": "^1.19"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.4"
+    }
+}

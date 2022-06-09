@@ -1,0 +1,170 @@
+body {
+	overflow-x: hidden;
+}
+img {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+}
+
+.editor-cta-button {
+	border-bottom: 4px solid $primary;
+	max-width: 400px;
+	position: relative;
+	font-weight: $font-weight-semibold;
+	text-align: left;
+	margin-top: 45px;
+	@include screen-lg() {
+		max-width: 500px;
+		margin-top: 65px;
+	}
+	h3 a {
+		font-weight: $font-weight-semibold;
+	}
+	p {
+		margin: 0;
+		padding: 0;
+		font-weight: $font-weight-semibold;
+	}
+	a {
+		display: block;
+		color: black;
+		font-weight: $font-weight-semibold;
+		text-decoration: none;
+		font-size: $body_font_size_base;
+		padding-right: 40px;
+		margin-bottom: 20px;
+		@include screen-sm() {
+			font-size: $body_font_size_sm;
+		}
+		@include screen-lg() {
+			font-size: $body_font_size_lg;
+		}
+		&:after {
+			//content: url( '../images/arrow.svg' );
+			height: 15px;
+			width: 15px;
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			@include screen-sm() {
+				height: 25px;
+				width: 25px;
+				bottom: 20px;
+			}
+		}
+	}
+
+}
+
+.page {
+	section.hero {
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+		.hero-image-wrapper {
+			width: 100%;
+			overflow: hidden;
+			height: 320px;
+			@include screen-sm() {
+				height: 500px;
+			}
+			@include screen-lg() {
+				height: 600px;
+			}
+			@include screen-xl() {
+				height: 700px;
+			}
+		}
+		img {
+			&.hero-thumbnail {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: bottom center;
+				@include screen-sm() {
+
+				}
+				@include screen-lg() {
+
+				}
+				@include screen-xl() {
+
+				}
+				@media( min-width: 2000px ) {
+					object-position: center center;
+				}
+			}
+			&.overlay {
+				position: absolute;
+				width: 100%;
+				height: auto;
+				top: 75%;
+				overflow: hidden;
+			}
+		}
+		.hero-content {
+			position: absolute;
+			top: 55px;
+			left: 40px;
+			@include screen-sm() {
+				top: 105px;
+				left: 80px;
+			}
+			@include screen-lg() {
+				top: 115px;
+				left: 115px;
+			}
+			@include screen-xl() {
+				top: 138px;
+				left: 270px;
+			}
+			h1 {
+				color: white;
+			}
+			.cta-button {
+				@include primary-button();
+				text-decoration: none;
+				margin: 20px 0;
+				font-size: 18px;
+				@include screen-sm() {
+					font-size: 20px;
+				}
+				@include screen-lg() {
+					font-size: 24px;
+				}
+			}
+		}
+
+	}
+	.article-body {
+		width: 100%;
+		background-color: #CCDBDD;
+		.post-content {
+			@include base-widths();
+			padding-top: 40px;
+			padding-bottom: 40px;
+			text-align: left;
+			@include screen-sm() {
+				//padding-top: 40px;
+				//padding-bottom: 40px;
+			}
+			@include screen-lg() {
+				text-align: center;
+				//padding-top: 40px;
+				//padding-bottom: 40px;
+			}
+		}
+	}
+  	.content-sections {
+		li {
+		  @extend p;
+		}
+	}
+}
+h2 {
+	color: $primary;
+}
+.page.home {
+
+}

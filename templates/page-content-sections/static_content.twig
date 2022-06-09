@@ -1,0 +1,7 @@
+{% spaceless %}
+{% set template_path = static_content_directory ~ '/' ~ fields.template %}
+{% set exists = function('file_exists', template_path) %}
+{% if exists %}
+	{% include template_path %}
+{% endif %}
+{% endspaceless %}

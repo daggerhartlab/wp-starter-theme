@@ -1,0 +1,26 @@
+{
+  "name": "wp-starter-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "mix --production",
+    "watch": "mix watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggerhartlab/wp-starter-theme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daggerhartlab/wp-starter-theme/issues"
+  },
+  "homepage": "https://github.com/daggerhartlab/wp-starter-theme#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.52.3",
+    "sass-loader": "^12.6.0"
+  }
+}

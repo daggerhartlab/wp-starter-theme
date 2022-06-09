@@ -1,0 +1,75 @@
+{
+    "key": "group_616591f06b81b",
+    "title": "Page Content Sections",
+    "fields": [
+        {
+            "key": "field_616591f8d6f54",
+            "label": "Sections",
+            "name": "page_content_sections",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_61a7a41bc7a32": {
+                    "key": "layout_61a7a41bc7a32",
+                    "name": "static_content",
+                    "label": "Static Content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_61a7a426c7a33",
+                            "label": "Template",
+                            "name": "template",
+                            "type": "select",
+                            "instructions": "Select a template (twig or html) found within the theme's templates\/static_content directory.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": [],
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1638977710
+}

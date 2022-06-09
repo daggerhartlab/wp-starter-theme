@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<div class="article-body">
+					{% if post.content %}
+					<div class="post-content">
+						{{post.content}}
+					</div>
+					{% endif %}
+				</div>
+				{% if page_content_sections %}
+				<div class="content-sections">
+					{% for content_row in page_content_sections %}
+						{% include( "page-content-sections/#{content_row.acf_fc_layout}.twig") with {
+							'fields' : content_row,
+							'component_key' : loop.index
+						} %}
+					{% endfor %}
+				</div>
+				{% endif %}
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

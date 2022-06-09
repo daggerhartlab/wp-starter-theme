@@ -1,0 +1,50 @@
+p {
+	font-size: $body_font_size_base;
+	font-weight: $body_font_weight;
+	line-height: $body_line_height_base;
+	color: $base-font-color;
+	@include screen-sm() {
+		font-size: $body_font_size_sm;
+	}
+	@include screen-lg() {
+		font-size: $body_font_size_lg;
+	}
+	@include screen-xl() {
+		font-size: $body_font_size_xl;
+	}
+}
+
+h1, .h1 {
+	font-size: $hero_font_size_base;
+	font-weight: $hero_font_weight;
+	line-height: $hero_line_height_base;
+	@include screen-sm() {
+		font-size: $hero_font_size_sm;
+	}
+	@include screen-lg() {
+		font-size: $hero_font_size_lg;
+	}
+	@include screen-xl() {
+		font-sie: $hero_font_size_xl;
+	}
+}
+
+
+h2, .h2 {
+	font-size: $heading_font_size_base;
+	font-weight: $heading_font_weight;
+	line-height: $heading_line_height_base;
+	padding-bottom: 20px;
+	@include screen-sm() {
+		font-size: $heading_font_size_sm;
+		padding-bottom: 30px;
+	}
+	@include screen-lg() {
+		font-size: $heading_font_size_lg;
+		padding-bottom: 40px;
+	}
+	@include screen-xl() {
+		font-size: $heading_font_size_xl;
+	}
+}
+

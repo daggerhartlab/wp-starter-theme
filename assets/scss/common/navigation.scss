@@ -1,0 +1,244 @@
+// variables to set some numbers complicated functionality all at once
+
+$nav-height-base: 50px;
+$nav-height-sm: 90px;
+$nav-breakpoint: $breakpoint_lg_min;
+$offcanvas-nav-width: 300px;
+
+
+body.menu-open { // freezes scroll on nav open.
+	height: 100vh;
+	overflow: hidden;
+}
+
+header.header {
+	z-index: 8;
+	width: 100%;
+	background-color: $primary;
+	padding: 0 20px;
+	height: $nav-height-base;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include screen-sm() {
+		padding: 0 40px;
+		height: $nav-height-sm;
+	}
+
+	+ * { // next sibling has margin the height of the header
+		margin-top: $nav-height-base;
+		@include screen-sm() {
+			margin-top: $nav-height-sm;
+		}
+	}
+
+
+
+	.header-content-wrapper {
+		width: 100%;
+		max-width: 1800px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+
+		.logo-wrap {
+			width: 65px;
+			@include screen-sm() {
+				width: 118px;
+				height: auto;
+			}
+			img { // logo image
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		// navigation background screen and hamburger
+		#nav-trigger-control {
+			@media(min-width: $nav-breakpoint) {
+				// hide everything and turn off all pointer events on large screens
+				display: none;
+				pointer-events: none;
+			}
+			.page-screen {
+				z-index: 9;
+				position: fixed;
+				left: 0;
+				height: 100vh;
+				width: 100vw;
+				pointer-events: none;
+				transition: all 0.2s ease-in-out;
+				top: $nav-height-base;
+
+				@include screen-sm() {
+					top: $nav-height-sm;
+				}
+			}
+
+			.toggle { // hamburger lines
+				margin: 0 0 0 20px;
+				display: block;
+				width: 36px;
+				height: 30px;
+				position: relative;
+				span {
+					width: 36px;
+					position: absolute;
+					left: 0;
+					height: 4px;
+					display: block;
+					background-color: white;
+					transition: all 0.2s ease-in-out;
+					border-radius: 3px;
+					transform-origin: left center;
+				}
+				span:nth-of-type(1) {
+					top: 3px;
+					transform: rotate(0deg);
+				}
+				span:nth-of-type(2) {
+					top: 13px;
+					transform: rotate(0deg);
+				}
+				span:nth-of-type(3) {
+					bottom: 3px;
+					transform: rotate(0deg);
+				}
+			}
+			&.active {
+				.page-screen {
+					pointer-events: all;
+					background-color: rgba(0, 0, 0, .4);
+				}
+				.toggle { // hamburger lines as 'x'
+
+					span:nth-of-type(1) {
+						left: 7px;
+						top: 1px;
+						transform-origin: 0 0;
+						transform: rotate(45deg);
+					}
+
+					span:nth-of-type(2) {
+						transform: rotate(-45deg);
+						transform-origin: center center;
+					}
+
+					span:nth-of-type(3) {
+						left: -7px;
+						bottom: 1px;
+						transform-origin: 100% 100%;
+						transform: rotate(45deg);
+					}
+				}
+			}
+		}
+
+		.nav-main {
+			// menu wrapper is offcanvas on small screens and a normal flex row menu on larger screens.
+			z-index: 10;
+			position: absolute;
+			top: $nav-height-base;
+			width: $offcanvas-nav-width;
+			right: -#{$offcanvas-nav-width}; // this is interpolation to make the variable a negative value
+			height: calc(100vh - #{$nav-height-base});
+			overflow: auto;
+			background-color: white;
+			transition: right 0.3s ease-in-out;
+			&.active { // click event slides in offcanvas.
+				right: 0;
+			}
+			@include screen-sm() {
+				top: $nav-height-sm;
+			}
+			@media(min-width: $nav-breakpoint) {
+				background-color: transparent;
+				border: 0;
+				position: static;
+				right: auto;
+				top: auto;
+				width: auto;
+				height: auto;
+				display: flex;
+				flex-direction: row;
+			}
+			/**
+			 Breaking the nested menu UL up by media query for clarity.
+			 */
+
+			// base
+			ul {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				li {
+					margin: 0;
+					list-style: none;
+					display: block;
+					border-bottom: 1px solid $primary;
+					width: 100%;
+					a {
+						padding: 20px 10px;
+						text-decoration: none;
+						color: $primary;
+						width: 100%;
+						height: 100%;
+						display: block;
+					}
+					&:hover {
+						background-color: $primary;
+						a {
+							color: white;
+						}
+					}
+				}
+
+			}
+
+			// when the menu switches states.
+			@media(min-width: $nav-breakpoint) {
+				ul {
+					display: flex;
+					flex-direction: row;
+					li {
+						width: auto;
+						border: 0;
+						&:first-of-type {
+							padding-left: 0;
+						}
+						&:last-of-type {
+							padding-right: 0;
+						}
+						a {
+							color: white;
+							padding: 0 22px;
+						}
+						&:hover {
+							background-color: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+body.logged-in { // Header fixes for logged in admin
+	header.header {
+		top: 46px;
+		@media(min-width: 782px) {
+			top: 32px;
+		}
+	}
+	.header-content-wrapper #nav-trigger-control .page-screen {
+		top: 46 + $nav-height-base;
+		@include screen-sm() {
+			top: 32 + $nav-height-sm;
+		}
+	}
+}

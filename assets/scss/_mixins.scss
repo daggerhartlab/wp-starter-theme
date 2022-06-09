@@ -1,0 +1,164 @@
+
+
+/* ***************** */
+/* Mixins */
+/* ***************** */
+
+@mixin xs-only() {
+	@media screen and (max-width: $breakpoint_xs_max ) {
+		@content;
+	}
+}
+
+// these mixins represent screen sizes at the smallest size in the bracket.
+// screen medium breaks at the 'smallest' medium screen
+
+@mixin screen-sm() { // tablet
+	@media screen and ( min-width: $breakpoint_sm_min) {
+		@content;
+	}
+}
+
+@mixin screen-lg() { // desktop
+	@media screen and ( min-width: $breakpoint_lg_min) {
+		@content;
+	}
+}
+
+@mixin screen-xl() { // widescreen
+	@media screen and ( min-width: $breakpoint_xl_min) {
+		@content;
+	}
+}
+
+
+@mixin base-widths() {
+	margin: 0 auto;
+	max-width: 85%;
+	@include screen-sm() {
+		max-width: 80%;
+	}
+	@include screen-lg() {
+		width: 85%;
+		max-width: 1100px;
+	}
+	@include screen-xl() {
+		max-width: 1300px;
+	}
+}
+
+@mixin base-vert-margins() {
+	margin: 50px auto 0 auto;
+	@include screen-lg() {
+		margin-top: 80px;
+	}
+	@include screen-xl() {
+		margin-top: 110px;
+	}
+}
+
+@mixin inset-content() {
+	background-color: $accent-color;
+	padding: 20px;
+	@include screen-sm() {
+		padding: 30px;
+	}
+	.heading {
+		color: $accent-color-dark;
+		font-weight: $font-weight-bold;
+		font-size: 20px;
+
+		@include screen-sm() {
+			font-size: 26px;
+		}
+		@include screen-lg() {
+			font-size: 32px;
+		}
+	}
+}
+
+// mix this with UL for arrow bullets
+@mixin arrow-bullets-list($color) {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		position: relative;
+		padding-left: 20px;
+		margin-left: 0;
+	    @include screen-sm() {
+		  padding-left: 30px;
+		}
+		&:before {
+			content: '';
+			width: 0;
+			height: 0;
+			display: block;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-left: 7px solid $color;
+			position: absolute;
+			top: 5px;
+			left: 0;
+		    @include screen-sm() {
+			  border-top: 7px solid transparent;
+			  border-bottom: 7px solid transparent;
+			  border-left: 12px solid $color;
+			  position: absolute;
+			  top: 7px;
+			}
+		}
+	}
+}
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+// See: https://hugogiraudel.com/2016/10/13/css-hide-and-seek/
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+//
+// Useful for "Skip to main content" links; see https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+//
+// Credit: HTML5 Boilerplate
+
+@mixin sr-only-focusable {
+  &:active,
+  &:focus {
+	position: static;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	clip: auto;
+	white-space: normal;
+	clip-path: none;
+  }
+}
+
+@mixin primary-button() {
+	width: auto;
+
+	margin: 0 auto;
+	background: $primary;
+	color: #fff;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+	padding: 10px 20px;
+	@include screen-lg() {
+		padding: 15px 25px;
+	}
+}
