@@ -1,5 +1,6 @@
 {
     "name": "daggerhartlab/wp-starter-theme",
+    "type": "wordpress-theme",
     "autoload": {
         "psr-4": {
             "DagLabTheme\\": "src/"
