@@ -153,6 +153,12 @@ class TimberSite extends \Timber\Site {
 	 */
 	public function add_to_twig( \Twig\Environment $twig ) {
 		$twig->addExtension( new \Twig\Extension\StringLoaderExtension() );
+
+		// Better debugging.
+		if ( function_exists( 'dump' ) && class_exists( '\\HelloNico\\Twig\\DumpExtension' ) ) {
+			$twig->addExtension( new \HelloNico\Twig\DumpExtension() );
+		}
+		
 		return $twig;
 	}
 
