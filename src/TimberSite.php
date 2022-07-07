@@ -93,11 +93,14 @@ class TimberSite extends \Timber\Site {
 		$context['site']  = $this;
 		$context['assets_url'] = static::themeUrl() . '/assets';
 		$context['static_content_directory'] = StaticContentTemplates::templatesDirectory();
-    $context['logo_url'] = get_stylesheet_directory_uri() . '/assets/images/logo.png';
-
-    return $context;
+		$context['logo_url'] = get_stylesheet_directory_uri() . '/assets/images/logo.png';
+		
+		return $context;
 	}
 
+	/**
+	 * @return void
+	 */
 	public function theme_supports() {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
