@@ -8,8 +8,7 @@
     },
     "require": {
         "ext-json": "*",
-        "timber/timber": "^1.19",
-        "hellonico/twig-dump-extension": "^1.1"
+        "timber/timber": "^1.19"
     },
     "config": {
         "allow-plugins": {
@@ -17,6 +16,7 @@
         }
     },
     "require-dev": {
+        "hellonico/twig-dump-extension": "^1.1",
         "symfony/var-dumper": "^5.4"
     }
 }
