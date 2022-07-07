@@ -8,7 +8,8 @@
     },
     "require": {
         "ext-json": "*",
-        "timber/timber": "^1.19"
+        "timber/timber": "^1.19",
+        "hellonico/twig-dump-extension": "^1.1"
     },
     "config": {
         "allow-plugins": {
