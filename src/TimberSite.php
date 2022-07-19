@@ -47,8 +47,8 @@ class TimberSite extends \Timber\Site {
 			return $version;
 		}
 
-		if ( file_exists( static::themeDir() . '/assets/style.css' ) ) {
-			$version = filemtime( static::themeDir() . '/assets/style.css' ) ?: NULL;
+		if ( file_exists( static::themeDir() . '/assets/css/styles.css' ) ) {
+			$version = filemtime( static::themeDir() . '/assets/css/styles.css' ) ?: NULL;
 		}
 
 		return $version;
@@ -169,7 +169,7 @@ class TimberSite extends \Timber\Site {
 	 * Enqueue the Timber stylesheet
 	 */
 	public function enqueue_scripts_and_styles() {
-		wp_enqueue_style( static::themeName() . '-styles' , static::themeUrl() . '/assets/css/style.css', [], static::assetsVersion() );
+		wp_enqueue_style( static::themeName() . '-styles' , static::themeUrl() . '/assets/css/styles.css', [], static::assetsVersion() );
 
 		// custom scripts
 		wp_enqueue_script( static::themeName() . '-js', static::themeUrl() . '/assets/js/scripts.js', ['jquery', 'slick-js', 'bootstrap-js-cdn']);
