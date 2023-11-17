@@ -31,7 +31,7 @@
 					<p> comments for this post are closed </p>
 				{% else %}
 				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
+					{{ function('comment_form') }}
 				{% endif %}
 			</section>
 		</article>
