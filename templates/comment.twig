@@ -1,0 +1,35 @@
+{# comment.twig #}
+<div class="single-comment">
+    <div id="comment-{{ comment.id }}">
+        <div class="row">
+            <div class="col-md-2 col-xl-1 avatar">
+                {#			<img src="{{ comment.author_image_src }}" alt="{{ comment.author_image_alt }}" />#}
+                {{ function('get_avatar', comment.id ) }}
+            </div>
+            <div class="col-md-10 col-xl-11">
+                <div class="author">{{ comment.author.name }}</div>
+                <div class="date">{{ comment.date }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col comment-content">
+                {{ comment.content }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col reply-link">
+                {{ comment.reply_link }}
+            </div>
+        </div>
+    </div>
+    <div class="respond comment-form">
+
+    </div>
+    {% if comment.children %}
+        {% for reply in comment.children %}
+            {% include 'comment.twig' with {
+                comment: reply,
+            } %}
+        {% endfor %}
+    {% endif %}
+</div>

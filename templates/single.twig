@@ -30,8 +30,8 @@
 				{% if post.comment_status == "closed" %}
 					<p> comments for this post are closed </p>
 				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
+					<!-- comment form -->
+					{{ function('comment_form') }}
 				{% endif %}
 			</section>
 		</article>
