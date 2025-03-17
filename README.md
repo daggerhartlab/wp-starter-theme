@@ -51,7 +51,11 @@ We use ACF Flexible Content Layouts w/ a field group named "Page Content Section
 
 An example component is provided - Content HTML, which is a basic WYSIWYG field. This illustrates the way components are typically put together while also serving as a practical component that most sites will end up using.
 
-#### Creating components
+#### Static components
+
+If a component doesn't need dynamic data, then a static Twig or plain HTML template can be added in `templates/components/static-content`. To add the static component to a page, add a "Static Content" section within the "Page Content Sections" and then select your template from the dropdown.
+
+#### Creating dynamic components
 
 To make a new component, follow these steps:
 
