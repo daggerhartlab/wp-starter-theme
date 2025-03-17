@@ -12,15 +12,10 @@
 					{% endif %}
 				</div>
 				{% if page_content_sections %}
-				<div class="content-sections">
-					{% for content_row in page_content_sections %}
-						{% include( "page-content-sections/#{content_row.acf_fc_layout}.twig") with {
-							'fields' : content_row,
-							'component_key' : loop.index
-						} %}
-					{% endfor %}
-				</div>
-				{% endif %}
+					{% include 'partial/components-loop.twig' with {
+						sections: page_content_sections
+					} %}
+                {% endif %}
 			</section>
 		</article>
 	</div><!-- /content-wrapper -->

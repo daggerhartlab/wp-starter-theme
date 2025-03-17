@@ -28,7 +28,7 @@ class StaticContentTemplates {
 	 * @return string
 	 */
 	public static function templatesDirectory() {
-		return get_stylesheet_directory() . '/templates/static-content';
+		return get_stylesheet_directory() . '/templates/components/static-content';
 	}
 
 	/**
@@ -74,6 +74,7 @@ class StaticContentTemplates {
 			$relative_path = str_replace($content_dir . '/', '', $file[0]);
 			$choices[$relative_path] = $relative_path;
 		}
+		ksort($choices);
 		return $choices;
 	}
 

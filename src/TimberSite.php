@@ -77,6 +77,8 @@ class TimberSite extends \Timber\Site {
 		add_action( 'wp_enqueue_scripts', [$this,'enqueue_scripts_and_styles']);
 		add_action( 'after_setup_theme', [$this,'register_menus']);
 
+		StaticContentTemplates::register();
+
 		parent::__construct();
 	}
 
