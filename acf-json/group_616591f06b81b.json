@@ -6,6 +6,7 @@
             "key": "field_616591f8d6f54",
             "label": "Sections",
             "name": "page_content_sections",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_61a7a426c7a33",
                             "label": "Template",
                             "name": "template",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "Select a template (twig or html) found within the theme's templates\/static_content directory.",
                             "required": 1,
@@ -47,11 +49,41 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_67d82b2bc1691": {
+                    "key": "layout_67d82b2bc1691",
+                    "name": "content_html",
+                    "label": "Content HTML",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67d82b34c1693",
+                            "label": "Content",
+                            "name": "content",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
-            "button_label": "Add Row",
             "min": "",
-            "max": ""
+            "max": "",
+            "button_label": "Add Row"
         }
     ],
     "location": [
@@ -71,5 +103,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1638977710
+    "show_in_rest": 0,
+    "modified": 1742220095
 }

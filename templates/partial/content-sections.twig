@@ -1,0 +1,8 @@
+<div class="content-sections">
+    {% for section in sections %}
+        {% include( "page-content-sections/#{section.acf_fc_layout}.twig") with {
+            'fields' : section,
+            'component_key' : component_key
+        } %}
+    {% endfor %}
+</div>

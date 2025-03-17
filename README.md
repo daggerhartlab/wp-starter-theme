@@ -23,7 +23,11 @@ Resources:
 
 ### ACF Components
 
-Uses ACF Layouts w/ a field named "Page Content Sections" to provide a mechanism for building content with components.
+We use ACF Flexible Content Layouts w/ a field group named "Page Content Sections" to provide a mechanism for building content with components.
+
+An example component is provided - Content HTML, which is a basic WYSIWYG field. This illustrates the way components are typically put together while also serving as a practical component that most sites will end up using.
+
+#### Creating components
 
 To make a new component, follow these steps:
 
@@ -40,6 +44,15 @@ To make a new component, follow these steps:
 * Styles are typically placed in `assets/scss/content-sections/{component_name}.scss` and imported in the "Flexible Content Sections" portion of `assets/styles.scss`
 * JavaScripts are typically placed in `assets/js/{component_name.es6.js}`. Note that files with the `.js` extension without the `.es6` prefix are ignored since these represent build artifacts. There is also a `scripts.es6.js` file where globally applicable JS code can go if needed.
 * At this point, you can view the page where you added the component and see the result
+
+#### Using components for specific post types
+
+By default, the "Page" post type uses the ACF components, but other post types do not. To add components to other content types, follow these steps:
+
+* Edit the "Page Content Sections" field group
+* In the "Settings" section, add a new rule underneath "Post type is equal to Page" and select your post type
+* In the `single.php` template (or `single-{post-type}.php` for your post type), add the `page_content_sections` field to the Twig template context (see `page.php` for an example)
+* In the Twig template for your content type single view, you can now include the partial that handles components. See `page.twig` for an example.
 
 ### Directory Structure
 
