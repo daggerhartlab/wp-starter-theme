@@ -21,6 +21,30 @@ Resources:
 
 ## Concepts & Structure
 
+### Template Hierarchy
+
+Like all WordPress themes, the [WordPress template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/) is used to determine which PHP file is loaded in response to any requested URL on the site.
+
+We have three PHP files to start with:
+
+* `page.php` - Used when the main request is for an individual piece of content whose type is `page`
+* `single.php` - Used when the main request is for an individual piece of content with any other type (e.g. `post`)
+* `index.php` - Used for all other requests, including archives and search
+
+Any additional templates can be added as needed based on the patterns established in the template hierarchy.
+
+The typical PHP template file will do the following:
+
+* Load the appropriate post or posts being requested into the Twig context using Timber's functionality
+* Load ACF component data into the Twig context if applicable
+* Determine which twig template should be included, and include it along with the context variable.
+
+The behavior as to which Twig template is loaded by a given PHP file is determined by an array of possible templates. The first array item that matches the request is then rendered.
+
+For example, in `page.php`, the template loads the page object and component data into a context variable. It then attempts to find a Twig template named `page-{slug}.twig`, where `slug` is the page slug currently being viewed. If that file doesn't exist, it falls back to `page.twig`. The resulting template is then rendered along with the context variable built by the PHP file.
+
+Note that the fallback behavior for handling Twig templates described above is very similar to WP's template hierarchy for PHP templates, except it can be modified any way we might wish. Because we can manage Twig template variations this way, there is usually not a need to have PHP templates such as `page-{slug}.php`. However that is possible and might be a good option if a given page needs data in its Twig template that is very different from other pages.
+
 ### ACF Components
 
 We use ACF Flexible Content Layouts w/ a field group named "Page Content Sections" to provide a mechanism for building content with components.
