@@ -12,7 +12,7 @@
 					{% endif %}
 				</div>
 				{% if page_content_sections %}
-					{% include 'partial/content-sections.twig' with {
+					{% include 'partial/components-loop.twig' with {
 						sections: page_content_sections
 					} %}
                 {% endif %}
