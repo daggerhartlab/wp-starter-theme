@@ -37,7 +37,7 @@ To make a new component, follow these steps:
 * Fill out the fields as needed and Save
 * In the theme's `templates/page-content-sections` directory, create a file called `component_name.twig` where `component_name` is the auto-populated "Name" of the component noted above. This is where the component markup will go.
     * The variables passed in (via `page.twig`) are `fields`, which has the ACF field values, and `component_key`, which is the row number beginning with `1`
-* Styles are typically place in `assets/scss/content-sections/{component_name}.scss` and imported in the "Flexible Content Sections" portion of `assets/styles.scss`
+* Styles are typically placed in `assets/scss/content-sections/{component_name}.scss` and imported in the "Flexible Content Sections" portion of `assets/styles.scss`
 * JavaScripts are typically placed in `assets/js/{component_name.es6.js}`. Note that files with the `.js` extension without the `.es6` prefix are ignored since these represent build artifacts. There is also a `scripts.es6.js` file where globally applicable JS code can go if needed.
 * At this point, you can view the page where you added the component and see the result
 
@@ -49,11 +49,11 @@ Here are the common folders and where files are expected.
 |-----------------------------------|--------------------------------------------------------|
 | `assets/scss/common`              | Global styles, such as typography, header, footer, etc |
 | `assets/scss/content-sections`    | Styles for the `page-content-sections` templates       |
-| `assets/layouts`                  | Styles for the global HTML layout structures           |
+| `assets/scss/layouts`             | Styles for the global HTML layout structures           |
 | `assets/js/*.es6.js`              | Scripts that are transpiled during build               |
 | `templates`                       | Global layout and structural templates                 |
-| `templates/page-content-sections` | Twig templates for the ACF Layouts                     |
-| `templates/partial`               | Twig templates for arbitrary components                |
+| `templates/page-content-sections` | Twig templates for the ACF Layouts (components)        |
+| `templates/partial`               | Twig templates for arbitrary partial layouts           |
 | `templates/static-content`        | Twig templates for "Static" ACF Layout                 |
 | `src`                             | PSR-4 PHP entrypoint. Namespace: `DagLabTheme`         |
 
