@@ -1,7 +1,6 @@
 // Custom variables.
 
 // colors
-$primary: deeppink;
 $base-font-color: black;
 $accent-color: MintCream;
 $accent-color-dark: MediumSpringGreen;
@@ -36,16 +35,6 @@ $hero_font_size_lg: 48px;
 $hero_font_size_xl: 48px;
 $hero_line_height_base: 1.4;
 $hero_font_weight: $font-weight-bold;
-
-// grid breakpoint over rides.
-$grid-breakpoints: (
-	xs: 0,
-	sm: 576px, // this could be where we switch to md.
-	md: 768px,
-	lg: 992px, // this could be where we switch to desktop
-	xl: 1200px,
-	xxl: 1400px // this could be where we switch to wide
-) !default;
 
 // breakpoints
 $breakpoint_xs_max:  map-get($grid-breakpoints, "sm") - .02px;
